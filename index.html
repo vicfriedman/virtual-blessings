@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div class="overlay" id="blessing-overlay">
+  <div class="overlay hide-overlay" id="blessing-overlay">
     <div class="blessingItem">
       <button type="button" class="close">X</button>
       <p> BLESSING ITEM(S) IN CART</p>
@@ -20,7 +20,6 @@
     </div>
   </div>
   <script>
-    (function() {
     'use strict';
     var firstOverlay = document.getElementById("options-overlay");
     var secondOverlay = document.getElementById("blessing-overlay");
@@ -48,9 +47,10 @@
 
 
 
-    function overlay(overlay) {
-      console.log(overlay)
-      overlay.style.visibility = (overlay.style.visibility == "visible") ? "hidden" : "visible";
+    function overlay(overlayToShow){
+      if (overlayToShow.classList.contains("hide-overlay")){
+        overlayToShow.classList.remove("hide-overlay");
+      }
     }
 
     function loadOverlay(){
@@ -60,12 +60,12 @@
     }
 
     function yesBless(){
-      firstOverlay.style.visibility = "hidden";
+      firstOverlay.classList.add("hide-overlay");
       overlay(secondOverlay);
     }
 
     function noBless(){
-      firstOverlay.style.visibility = "hidden";
+      firstOverlay.classList.add("hide-overlay");
     }
 
     function overlayListeners(){
@@ -75,6 +75,5 @@
 
     overlayListeners();
     loadOverlay();
-    }());
   </script>
 </body>
