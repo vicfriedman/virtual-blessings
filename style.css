@@ -1,74 +1,46 @@
-#first-overlay,
-#second-overlay {
-     visibility: hidden;
-     position: absolute;
-     left: 0px;
-     top: 0px;
-     width:100%;
-     height:100%;
-     text-align:center;
-     z-index: 1000;
-}
-
-#first-overlay .blessOptions {
-  background-color: #ffefca;
-  border:1px solid #000;
-  height: 161px;
-  margin: 100px auto;
-  padding:15px;
-  text-align:center;
-  width:292px;
- }
-
- #second-overlay .blessingItem {
-  background-color: #ffefca;
+.overlay {
+  background-color: rgba(255, 255, 255, 0.5);
   float: right;
   height: 100%;
-  margin: 100px auto;
-  padding:15px;
-  text-align:center;
-  width:241px;
- }
-
-#first-overlay .blessOptions p,
-#second-overlay .blessingItem p  {
-  font: 600 20px Arial, sans-serif;
-}
-
-#first-overlay .blessOptions .close,
-#second-overlay .blessingItem .close{
-  border: none;
-  background-color: #ffefca;
-  float: left;
-}
-
-#first-overlay .blessOptions .yes-bless {
-  background-color: #fff;
-  border-color: #000;
-  border-radius: 15px;
-  height: 51px;
-  width: 135px;
-}
-
-#first-overlay .blessOptions .yes-bless,
-#first-overlay .blessOptions .no-bless
- {
-  display: block;
-  margin: 0 auto;
+  position: relative;
   text-align: center;
-  margin-bottom: 12px;
+  width: 317px;
 }
 
+#hide-blessing-overlay {
+  display: none;
+}
 
-#first-overlay .blessOptions .no-bless {
+button.close {
   border: none;
-  background-color: #ffefca;
-  font-size: 15px;
-  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.5);
+  float: left;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 15
 }
 
-#second-overlay .blessingItem .blessing {
-  font-size: 11px;
-  font-style: italic;
-  font-weight: lighter;
+#option {
+  font-family: helvetica;
+  font-size: 20px;
+  margin-top: 200px;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-bottom: 55px;
+  text-align: center;
+}
+
+.yes-bless, .no-bless {
+  background-color: #fff;
+  border: none;
+  font: bold 20px helvetica;
+}
+
+.no-bless {
+  margin-right: 37.5px;
+}
+
+.yes-bless {
+  margin-left: 37.5px;
 }

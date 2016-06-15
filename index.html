@@ -3,21 +3,78 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 </head>
 <body>
-  <div id="first-overlay">
+  <div class="overlay" id="options-overlay">
     <div class="blessOptions">
       <button type="button" class="close">X</button>
-      <p>BLESS ITEMS(S) IN CART?</p>
-      <button type="button" class="yes-bless">YES</button>
-      <button type="button" class="no-bless"> No thanks</button>
+      <p id="option">Would you like to Virtually Bless items(s) in your cart?</p>
+      <button type="button" class="no-bless">No</button>
+      <button type="button" class="yes-bless"> Yes</button>
     </div>
   </div>
 
-  <div id="second-overlay">
+  <div class="overlay" id="blessing-overlay">
     <div class="blessingItem">
       <button type="button" class="close">X</button>
       <p> BLESSING ITEM(S) IN CART</p>
       <p class="blessing"><p>
     </div>
   </div>
-  <script src="index.js"></script>
+  <script>
+    (function() {
+    'use strict';
+    var firstOverlay = document.getElementById("options-overlay");
+    var secondOverlay = document.getElementById("blessing-overlay");
+    var yes = document.querySelector(".yes-bless");
+    var no = document.querySelector(".no-bless");
+
+    function loadWord(){
+      var blessingSpot = document.querySelector(".blessing");
+      for (var i = 0; i < paragraphNodes.length - 1; i++){
+        //need to figure out how to delay loading of words - happens immediately
+        blessingSpot.appendChild(paragraphNodes[i]);
+      }
+    }
+
+    function writeBlessing(){
+      var paragraph = "Chupa chups bear claw tiramisu sugar plum wafer pudding. Cake cake lemon drops ice cream cake danish jelly tiramisu bonbon. Icing donut lemon drops.";
+      var paragraphSplit = paragraph.split(" ");
+      paragraphNodes = []
+      for (var i = 0; i < paragraphSplit.length; i++) {
+        paragraphNodes.push(document.createTextNode(paragraphSplit[i] + " "));
+      }
+      loadWord();
+
+    }
+
+
+
+    function overlay(overlay) {
+      console.log(overlay)
+      overlay.style.visibility = (overlay.style.visibility == "visible") ? "hidden" : "visible";
+    }
+
+    function loadOverlay(){
+      if (window.location.href.includes("index.html")){
+        overlay(firstOverlay);
+      }
+    }
+
+    function yesBless(){
+      firstOverlay.style.visibility = "hidden";
+      overlay(secondOverlay);
+    }
+
+    function noBless(){
+      firstOverlay.style.visibility = "hidden";
+    }
+
+    function overlayListeners(){
+      yes.addEventListener("click", yesBless);
+      no.addEventListener("click", noBless);
+    }
+
+    overlayListeners();
+    loadOverlay();
+    }());
+  </script>
 </body>
