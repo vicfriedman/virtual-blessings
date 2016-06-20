@@ -22,7 +22,7 @@ button.close {
 }
 
 #option {
-  font-family: helvetica;
+  font-family: Helvetica Neue;
   font-size: 20px;
   margin-top: 200px;
   margin-left: 60px;
@@ -31,10 +31,16 @@ button.close {
   text-align: center;
 }
 
+.copy-right {
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  font-style: italic;
+}
+
 .yes-bless, .no-bless {
   background-color: #fff;
   border: none;
-  font: bold 20px helvetica;
+  font: bold 20px Helvetica;
 }
 
 .no-bless {
@@ -43,4 +49,38 @@ button.close {
 
 .yes-bless {
   margin-left: 37.5px;
+}
+
+.blessingItem {
+  font-family: Helvetica Neue;
+}
+
+#blessing-cr {
+  margin-top: 200px;
+}
+
+#denomination {
+  background-color: #fff;
+  border: 1px solid black;
+  display: block;
+  font-size: 18px;
+  font-family: Helvetica Neue;
+  height: 40px;
+  margin: 20px auto 0 auto;
+  width: 220px;
+  -webkit-appearance: none;
+  -moz-appearance:none; 
+}
+
+#begin-blessing {
+  margin: 10px auto 0 auto;
+  background-color: #919191;
+  border: none;
+  color: #fff;
+  font-family: Helvetica Neue;
+  font-size: 18px;
+  width: 220px;
+  height: 40px;
+  border-radius: 5px;
+
 }

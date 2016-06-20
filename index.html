@@ -6,6 +6,7 @@
   <div class="overlay" id="options-overlay">
     <div class="blessOptions">
       <button type="button" class="close">X</button>
+      <p class="copy-right"> Virtually Blessed&#8482;</p>
       <p id="option">Would you like to Virtually Bless items(s) in your cart?</p>
       <button type="button" class="no-bless">No</button>
       <button type="button" class="yes-bless"> Yes</button>
@@ -15,16 +16,36 @@
   <div class="overlay hide-overlay" id="blessing-overlay">
     <div class="blessingItem">
       <button type="button" class="close">X</button>
-      <p> BLESSING ITEM(S) IN CART</p>
-      <p class="blessing"><p>
+      <p class="copy-right" id="blessing-cr"> Virtually Blessed&#8482;</p>
+
+      <form>
+        <select name="denomination" id="denomination">
+          <option value="select">Select Denomination</option>
+          <option value="christianity">Christianity</option>
+          <option value="juadaism">Judaism</option>
+        </select>
+        <p id="begin-blessing">Begin Blessing</p>
+      </form>
+    </div>
+  </div>
+  <div class="overlay hide-overlay" id="display-blessing">
+    <div class="the-blessing">
+      <button type="button" class="close">X</button>
+      <div class="blessing-text">
+      HEYYy
+      </div>
     </div>
   </div>
   <script>
     'use strict';
     var firstOverlay = document.getElementById("options-overlay");
     var secondOverlay = document.getElementById("blessing-overlay");
+    var thirdOverlay = document.getElementById('display-blessing')
     var yes = document.querySelector(".yes-bless");
     var no = document.querySelector(".no-bless");
+    var denomination = document.querySelector('#denomination');
+    var bless = document.querySelector('#begin-blessing');
+    var blessingOption;
 
     function loadWord(){
       var blessingSpot = document.querySelector(".blessing");
@@ -59,6 +80,7 @@
       }
     }
 
+
     function yesBless(){
       firstOverlay.classList.add("hide-overlay");
       overlay(secondOverlay);
@@ -71,6 +93,7 @@
     function overlayListeners(){
       yes.addEventListener("click", yesBless);
       no.addEventListener("click", noBless);
+      bless.addEvent
     }
 
     overlayListeners();
