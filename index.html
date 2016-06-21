@@ -31,11 +31,12 @@
   <div class="overlay hide-overlay" id="display-blessing">
     <div class="the-blessing">
       <button type="button" class="close">X</button>
+      <p class="copy-right"> Virtually Blessed&#8482;</p>
       <div class="blessing-text">
-      HEYYy
       </div>
     </div>
   </div>
+  <script src="marquee.js"></script>
   <script>
     'use strict';
     var firstOverlay = document.getElementById("options-overlay");
@@ -46,6 +47,7 @@
     var denomination = document.querySelector('#denomination');
     var bless = document.querySelector('#begin-blessing');
     var blessingOption;
+    var blessingSpot = document.querySelector('.blessing-text');
 
     function loadWord(){
       var blessingSpot = document.querySelector(".blessing");
@@ -81,6 +83,19 @@
     }
 
 
+    function marqueeText(){
+
+
+    }
+    
+    function beginBlessing(){
+      blessingOption = denomination.selectedIndex;
+      secondOverlay.classList.add("hide-overlay");
+      overlay(thirdOverlay);
+      
+    }
+
+
     function yesBless(){
       firstOverlay.classList.add("hide-overlay");
       overlay(secondOverlay);
@@ -93,7 +108,8 @@
     function overlayListeners(){
       yes.addEventListener("click", yesBless);
       no.addEventListener("click", noBless);
-      bless.addEvent
+      bless.addEventListener("click", beginBlessing);
+      blessingOption = bless
     }
 
     overlayListeners();
