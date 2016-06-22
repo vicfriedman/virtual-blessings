@@ -60,7 +60,9 @@ button.close {
 }
 
 #denomination {
+  background: url(arrow.png) no-repeat;
   background-color: #fff;
+  background-position: 95% 50%;
   border: 1px solid black;
   display: block;
   font-size: 18px;
