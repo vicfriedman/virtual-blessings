@@ -33,10 +33,11 @@
       <button type="button" class="close">X</button>
       <p class="copy-right"> Virtually Blessed&#8482;</p>
       <div class="blessing-text">
+        <marquee></marquee>
       </div>
     </div>
   </div>
-  <script src="marquee.js"></script>
+  <!-- <script src="marquee.js"></script> -->
   <script>
     'use strict';
     var firstOverlay = document.getElementById("options-overlay");
@@ -48,25 +49,6 @@
     var bless = document.querySelector('#begin-blessing');
     var blessingOption;
     var blessingSpot = document.querySelector('.blessing-text');
-
-    function loadWord(){
-      var blessingSpot = document.querySelector(".blessing");
-      for (var i = 0; i < paragraphNodes.length - 1; i++){
-        //need to figure out how to delay loading of words - happens immediately
-        blessingSpot.appendChild(paragraphNodes[i]);
-      }
-    }
-
-    function writeBlessing(){
-      var paragraph = "Chupa chups bear claw tiramisu sugar plum wafer pudding. Cake cake lemon drops ice cream cake danish jelly tiramisu bonbon. Icing donut lemon drops.";
-      var paragraphSplit = paragraph.split(" ");
-      paragraphNodes = []
-      for (var i = 0; i < paragraphSplit.length; i++) {
-        paragraphNodes.push(document.createTextNode(paragraphSplit[i] + " "));
-      }
-      loadWord();
-
-    }
 
 
 
@@ -84,7 +66,9 @@
 
 
     function marqueeText(){
-
+      var text = document.createTextNode("O Creator and Author of mankind, Giver of spiritual graces and Bestower of eternal salvation: Do Thou, the same Lord, send down Thy Holy Spirit, with a blessing from on high, upon this (name of object), that, fortified by the might of heavenly protection, it may be potent unto bodily salvation and succor aid aid, unto all who shall desire to make use of it, through Jesus Christ our Lord. Amen.")
+      var marquee =  document.querySelector("marquee");
+      marquee.appendChild(text);
 
     }
     
@@ -92,7 +76,7 @@
       blessingOption = denomination.selectedIndex;
       secondOverlay.classList.add("hide-overlay");
       overlay(thirdOverlay);
-      
+      marqueeText();
     }
 
 
