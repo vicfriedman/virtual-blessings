@@ -49,8 +49,8 @@
     var bless = document.querySelector('#begin-blessing');
     var blessingOption;
     var blessingSpot = document.querySelector('.blessing-text');
-
-
+    var closeBtns = document.querySelectorAll('.close');
+    var overlays = document.querySelectorAll('.overlay');
 
     function overlay(overlayToShow){
       if (overlayToShow.classList.contains("hide-overlay")){
@@ -89,14 +89,27 @@
       firstOverlay.classList.add("hide-overlay");
     }
 
+
+
     function overlayListeners(){
       yes.addEventListener("click", yesBless);
       no.addEventListener("click", noBless);
       bless.addEventListener("click", beginBlessing);
-      blessingOption = bless
+      blessingOption = bless;
+      closeBtns[0].addEventListener('click', function(){
+        overlays[0].classList.add('hide-overlay')
+      })
+      closeBtns[1].addEventListener('click', function(){
+        overlays[1].classList.add('hide-overlay')
+      })
+      closeBtns[2].addEventListener('click', function(){
+        overlays[2].classList.add('hide-overlay')
+      })
+            
+
     }
 
-    overlayListeners();
     loadOverlay();
+    overlayListeners();
   </script>
 </body>
