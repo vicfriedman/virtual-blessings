@@ -1,47 +1,69 @@
 .overlay {
-  background-color: rgba(255, 255, 255, 0.5);
-  float: right;
+  background-color: rgba(35, 47, 62, 0.75);
   height: 100%;
-  position: relative;
   text-align: center;
-  width: 317px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  color: #fff;
 }
+
+.fade-overlay {
+  -webkit-animation: blurOutToBlue 1s ease;
+}
+
 
 .hide-overlay {
   display: none;
 }
 
-button.close {
+.close {
   border: none;
-  background-color: rgba(255, 255, 255, 0.5);
   float: left;
   font-size: 20px;
-  left: 15;
+  right: 10;
   position: absolute;
-  top: 0;
+  top: 10;
+  color: #fff;
+  margin: 0;
+  font-family: Helvetica Neue;
 }
 
 #option {
   font-family: Helvetica Neue;
   font-size: 20px;
-  margin-top: 200px;
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-bottom: 55px;
+  margin: 0 auto;
+  margin-top: 165px;
   text-align: center;
+  width: 200px;
+  margin-bottom: 25px;
 }
 
 .copy-right {
   font-family: Helvetica Neue;
   font-weight: bold;
   font-style: italic;
+  right: 50px;
+  position: absolute;
+  top: 10;
+  margin: 0;
+
 }
 
 .yes-bless, .no-bless {
-  background-color: #fff;
   border: none;
   font: bold 20px Helvetica;
+  border: 1px solid #B9BDC1;
+  width: 123px;
+  height: 44px;
+  margin: 0 auto;
+  display: inline-block;
+  padding-top:15px;
 }
+
 
 .no-bless {
   margin-right: 37.5px;
@@ -53,10 +75,6 @@ button.close {
 
 .blessingItem {
   font-family: Helvetica Neue;
-}
-
-#blessing-cr {
-  margin-top: 200px;
 }
 
 #denomination {
@@ -72,7 +90,7 @@ button.close {
   padding-left: 14px;
   width: 220px;
   -webkit-appearance: none;
-  -moz-appearance:none; 
+  -moz-appearance:none;
 }
 
 #begin-blessing {
@@ -100,4 +118,72 @@ marquee {
   font-family: Helvetica Neue;
   font-size: 20px;
   margin-top: 125px;
+}
+
+@-webkit-keyframes blurOutToBlue {
+  0%  { background-color: rgba(255, 255, 255, 0.0);}
+  5% { background-color: rgba(255, 255, 255, 0.1);}
+  10% { background-color: rgba(255, 255, 255, 0.2); }
+  15% { background-color: rgba(255, 255, 255, 0.25);}
+  20% { background-color: rgba(255, 255, 255, 0.3);}
+  25% { background-color: rgba(255, 255, 255, 0.4);}
+  30% { background-color: rgba(255, 255, 255, 0.5);}
+  35% { background-color: rgba(255, 255, 255, 0.6);}
+  40% { background-color: rgba(255, 255, 255, 0.7);}
+  45% { background-color: rgba(255, 255, 255, 0.71);}
+  50% { background-color: rgba(255, 255, 255, 0.72);}
+  55% { background-color: rgba(233,234, 235, 0.73)}
+  60% { background-color: rgba(211, 213, 216, 0.75);}
+  65% { background-color: rgba(189, 192, 197, 0.75);}
+  70% { background-color: rgba(167, 171, 177, 0.75);}
+  75% { background-color: rgba(145, 151, 158, 0.75); }
+  80% { background-color: rgba(123, 130, 139, 0.75);}
+  85% { background-color: rgba(101, 109, 119, 0.75);}
+  90% { background-color: rgba(78, 88, 100, 0.75);}
+  95% { background-color: rgba(56, 67, 81, 0.75);}
+  100% { background-color: rgba(35, 47, 62, 0.75);}
+}
+
+
+.denomination-options {
+  width:  370px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.option {
+  width: 118px;
+  height: 118px;
+  border: 1px solid #fff;
+  margin: 0 5px 5px 0;
+  font-family: Helvetica Neu;
+  line-height: 118px;
+}
+
+.option-left {
+  margin: 0 5px 5px 0;
+}
+
+.option-right {
+  margin: 0px;
+}
+
+.option-long {
+  border: 1px solid #fff;
+  width: 370px;
+  height: 68px;
+  margin: 5px 0 0 0;
+  line-height: 68px;
+}
+
+.last-option {
+  line-height: 16px;
+  padding-top: 43px;
+  height: 75px;
+}
+
+.select {
+    margin-top: 108px;
+    font-family: Helvetica Neu;
 }

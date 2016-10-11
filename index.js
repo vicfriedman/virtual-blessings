@@ -23,7 +23,6 @@ yes.addEventListener("click", function(){
 });
 //click no
 
-//click x
 
 //write out text
 

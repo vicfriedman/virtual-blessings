@@ -3,29 +3,43 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 </head>
 <body>
-  <div class="overlay" id="options-overlay">
-    <div class="blessOptions">
-      <button type="button" class="close">X</button>
-      <p class="copy-right"> Virtually Blessed&#8482;</p>
-      <p id="option">Would you like to Virtually Bless items(s) in your cart?</p>
-      <button type="button" class="no-bless">No</button>
-      <button type="button" class="yes-bless"> Yes</button>
-    </div>
+  <p id="clickToStart">click to open overlay</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim, urna nec sagittis ultricies, purus dolor finibus est, a efficitur dui tellus in lacus. Donec luctus erat a diam ornare, id gravida mauris malesuada. Donec pretium magna at tristique dapibus. In lacinia mattis neque, vitae efficitur risus. Nam tempor, enim quis ullamcorper eleifend, nisl est posuere lorem, pellentesque dignissim mi orci in velit. Ut id porttitor metus, vel mattis massa. Curabitur eu neque non mauris blandit elementum ut sit amet nulla. Praesent interdum tortor eget arcu mattis ornare. Phasellus vestibulum sed mauris eget tempor. Integer convallis, odio id placerat efficitur, felis dolor vulputate metus, eu vulputate neque libero tempus eros. Quisque dictum ornare viverra. Vestibulum blandit sagittis velit eget accumsan. In tempus elementum leo vel imperdiet. Proin rutrum orci ac tortor malesuada dictum. Mauris convallis semper massa, et consequat urna gravida non. Praesent dignissim arcu non dapibus tempor.</p>
+
+  <p>Sed et turpis tincidunt, tempor orci vitae, auctor purus. Curabitur mollis, diam at fringilla feugiat, elit leo pellentesque elit, ut sagittis dolor quam et odio. Nullam suscipit nisi nec fermentum vehicula. Etiam tincidunt dolor tellus, id faucibus purus pulvinar eu. Ut consectetur feugiat egestas. Phasellus suscipit quam in tellus sagittis gravida. Morbi ante purus, laoreet vitae pellentesque vel, tincidunt eget nisi. Nam ac erat vitae mi volutpat malesuada quis a sapien. Praesent eget ligula sit amet ligula molestie gravida dapibus et dui.</p>
+
+  <p>Donec non magna ac tortor vestibulum lacinia ut ac eros. Proin erat magna, scelerisque eget diam at, vehicula lobortis risus. Proin sed metus sed mauris euismod tempus eu sit amet urna. Pellentesque lectus risus, sodales sed eleifend finibus, convallis vel purus. Suspendisse a leo vitae ante facilisis consectetur nec id massa. Fusce justo quam, rutrum a sollicitudin eget, tincidunt a libero. Vivamus et arcu vel orci vehicula volutpat. Nunc vel elit eu tellus convallis ultricies. Pellentesque vitae commodo neque. Maecenas aliquam semper feugiat. In aliquet, orci a viverra rutrum, quam dui vestibulum felis, varius eleifend tellus nisl vitae tortor. Nullam et dui tincidunt, sagittis mi vehicula, facilisis libero. Integer interdum odio nisi, ac imperdiet nisi facilisis vel. Praesent volutpat elementum ipsum, vitae congue diam mattis sed. Nunc malesuada felis et nunc tempor, eu fringilla diam mattis.</p>
+
+  <p>Integer tempor tempor dolor non fermentum. Nulla vel mi auctor, blandit nulla at, vulputate tortor. In lobortis ultricies elit sed aliquam. Maecenas dictum et nibh sed vulputate. Cras sed quam ornare, porttitor nisi consequat, finibus arcu. Etiam in scelerisque ante, a porta turpis. Curabitur vitae arcu et dui auctor rutrum. Nullam eu consequat justo, nec mattis arcu.</p>
+
+
+  <div class="overlay hide-overlay fade-overlay" id="options-overlay">
+
+    <p class="close">X</p>
+    <p class="copy-right"> Virtually Blessed&#8482;</p>
+    <p id="option">Would you like to Virtually Bless items(s) in your cart?</p>
+    <p class="no-bless">No</p>
+    <p class="yes-bless"> Yes</p>
+
   </div>
 
   <div class="overlay hide-overlay" id="blessing-overlay">
     <div class="blessingItem">
       <button type="button" class="close">X</button>
       <p class="copy-right" id="blessing-cr"> Virtually Blessed&#8482;</p>
-
-      <form>
-        <select name="denomination" id="denomination">
-          <option value="select">Select Denomination</option>
-          <option value="christianity">Christianity</option>
-          <option value="juadaism">Judaism</option>
-        </select>
-        <p id="begin-blessing">Begin Blessing</p>
-      </form>
+      <p class="select"> Select Your Denomination</p>
+      <div class="denomination-options">
+        <div class="option option-left">Christian</div>
+        <div class="option">Judaism</div>
+        <div class="option option-right">Buddism</div>
+        <div class="option option-left">Agnostic</div>
+        <div class="option">Islam</div>
+        <div class="option option-right">Atheism</div>
+        <div class="option option-left">Secular</div>
+        <div class="option">Hinduism</div>
+        <div class="option option-right last-option">Unitarian Universalist</div>
+        <div class="option-long">No Preference</div>
+      </div>
     </div>
   </div>
   <div class="overlay hide-overlay" id="display-blessing">
@@ -45,12 +59,12 @@
     var thirdOverlay = document.getElementById('display-blessing')
     var yes = document.querySelector(".yes-bless");
     var no = document.querySelector(".no-bless");
-    var denomination = document.querySelector('#denomination');
-    var bless = document.querySelector('#begin-blessing');
-    var blessingOption;
-    var blessingSpot = document.querySelector('.blessing-text');
+
     var closeBtns = document.querySelectorAll('.close');
     var overlays = document.querySelectorAll('.overlay');
+    var body = document.querySelector('body');
+    var denominations = document.querySelectorAll('.option');
+    var start = document.querySelector('#clickToStart');
 
     function overlay(overlayToShow){
       if (overlayToShow.classList.contains("hide-overlay")){
@@ -59,9 +73,12 @@
     }
 
     function loadOverlay(){
-      if (window.location.href.includes("index.html")){
+      // if (window.location.href.includes("index.html")){
+
         overlay(firstOverlay);
-      }
+
+      // }
+
     }
 
 
@@ -71,7 +88,7 @@
       marquee.appendChild(text);
 
     }
-    
+
     function beginBlessing(){
       blessingOption = denomination.selectedIndex;
       secondOverlay.classList.add("hide-overlay");
@@ -89,27 +106,34 @@
       firstOverlay.classList.add("hide-overlay");
     }
 
+    function selectDenomination(){
+      alert("selected!");
+    }
 
 
     function overlayListeners(){
       yes.addEventListener("click", yesBless);
       no.addEventListener("click", noBless);
-      bless.addEventListener("click", beginBlessing);
-      blessingOption = bless;
+      // bless.addEventListener("click", beginBlessing);
+      // blessingOption = bless;
       closeBtns[0].addEventListener('click', function(){
         overlays[0].classList.add('hide-overlay')
-      })
+      });
       closeBtns[1].addEventListener('click', function(){
         overlays[1].classList.add('hide-overlay')
-      })
+      });
       closeBtns[2].addEventListener('click', function(){
         overlays[2].classList.add('hide-overlay')
-      })
-            
+      });
 
+      for (var i = 0; i < denominations.length; i ++){
+        denominations[i].addEventListener('click', selectDenomination)
+      }
     }
 
-    loadOverlay();
+    // loadOverlay();
     overlayListeners();
+    start.addEventListener('click', loadOverlay);
+
   </script>
 </body>
