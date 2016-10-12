@@ -25,7 +25,7 @@
 
   <div class="overlay hide-overlay" id="blessing-overlay">
     <div class="blessingItem">
-      <button type="button" class="close">X</button>
+      <p class="close">X</p>
       <p class="copy-right" id="blessing-cr"> Virtually Blessed&#8482;</p>
       <p class="select"> Select Your Denomination</p>
       <div class="denomination-options">
@@ -44,7 +44,7 @@
   </div>
   <div class="overlay hide-overlay" id="display-blessing">
     <div class="the-blessing">
-      <button type="button" class="close">X</button>
+      <p class="close">X</p>
       <p class="copy-right"> Virtually Blessed&#8482;</p>
       <div class="blessing-text">
         <marquee></marquee>
@@ -65,6 +65,8 @@
     var body = document.querySelector('body');
     var denominations = document.querySelectorAll('.option');
     var start = document.querySelector('#clickToStart');
+
+    var denomination;
 
     function overlay(overlayToShow){
       if (overlayToShow.classList.contains("hide-overlay")){
@@ -106,16 +108,57 @@
       firstOverlay.classList.add("hide-overlay");
     }
 
+    function buildMovie(){
+      document.createElement('video');
+      if (denomination == "Christian"){
+        console.log("christian")
+        video.src="";
+
+      } else if (denomination == "Judaism"){
+        console.log("judaism")
+        video.src="";
+      } else if (denomination == "Buddism" ){
+        console.log("buddism")
+        video.src="";
+      } else if (denomination == "Agnostic"){
+        console.log("agnostic")
+        video.src="";
+      } else if (denomination == "Islam"){
+        console.log("islam")
+        video.src="";
+      } else if (denomination == "Atheism"){
+          console.log("atheism")
+          video.src="";
+      } else if (denomination == "Secular"){
+        console.log("secular")
+        video.src="";
+      } else if (denomination == "Hinduism"){
+        console.log("hinduism")
+        video.src="";
+      } else if (denomination == "Unitarian Universalist"){
+        console.log("u u ")
+        video.src="";
+      } else if (denomination == "No Preference"){
+        console.log("none")
+        video.src="";
+      }
+    }
     function selectDenomination(){
-      alert("selected!");
+      var innerOverlay = document.querySelector(".blessingItem");
+      denomination = this.innerHTML;
+      innerOverlay.classList.add("fadeOut");
+      buildMovie();
+      // secondOverlay.classList.add("fadeOut");
+      // window.setTimeout(function(){
+      //   secondOverlay.classList.add("hide-overlay")
+      // }, 1000);
+
     }
 
 
     function overlayListeners(){
       yes.addEventListener("click", yesBless);
       no.addEventListener("click", noBless);
-      // bless.addEventListener("click", beginBlessing);
-      // blessingOption = bless;
       closeBtns[0].addEventListener('click', function(){
         overlays[0].classList.add('hide-overlay')
       });

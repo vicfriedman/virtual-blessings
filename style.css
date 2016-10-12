@@ -54,23 +54,26 @@
 }
 
 .yes-bless, .no-bless {
-  border: none;
-  font: bold 20px Helvetica;
-  border: 1px solid #B9BDC1;
-  width: 123px;
-  height: 44px;
+  font: 16px Helvetica;
+  width: 220px;
+  height: 75px;
   margin: 0 auto;
+  line-height: 75px;
   display: inline-block;
-  padding-top:15px;
+  border: 1px solid #B9BDC1;
+}
+
+.yes-bless:active,
+.no-bless:active,
+.yes-bless:hover,
+.no-bless:hover {
+  background-color: #E5E7E5;
+  color: #7C828A;
 }
 
 
 .no-bless {
-  margin-right: 37.5px;
-}
-
-.yes-bless {
-  margin-left: 37.5px;
+  margin-right: 10px;
 }
 
 .blessingItem {
@@ -144,6 +147,34 @@ marquee {
   100% { background-color: rgba(35, 47, 62, 0.75);}
 }
 
+@-webkit-keyframes slowDenomination {
+  0%  { background-color: rgba(56, 67, 81, 0);}
+  5% { background-color: rgba(56, 67, 81, 0.05);}
+  10% { background-color:  rgba(56, 67, 81, 0.1);}
+  15% { background-color: rgba(56, 67, 81, 0.15);}
+  20% { background-color: rgba(56, 67, 81, 0.2);}
+  25% { background-color: rgba(56, 67, 81, 0.25);}
+  30% { background-color: rgba(56, 67, 81, 0.3);}
+  35% { background-color: rgba(56, 67, 81, 0.35);}
+  40% { background-color: rgba(56, 67, 81, 0.4);}
+  45% { background-color: rgba(56, 67, 81, 0.45);}
+  50% { background-color: rgba(56, 67, 81, 0.5);}
+  55% { background-color: rgba(56, 67, 81, 0.55);}
+  60% { background-color: rgba(56, 67, 81, 0.6);}
+  65% { background-color: rgba(56, 67, 81, 0.65);}
+  70% { background-color: rgba(56, 67, 81, 0.7);}
+  75% { background-color: rgba(56, 67, 81, 0.75); }
+  80% { background-color: rgba(56, 67, 81, 0.75);}
+  85% { background-color: rgba(56, 67, 81, 0.75);}
+  90% { background-color: rgba(56, 67, 81, 0.75);}
+  95% { background-color: rgba(56, 67, 81, 0.75);}
+  100% { background-color: rgba(56, 67, 81, 0.75);}
+}
+
+.fadeInDenominations {
+  -webkit-animation: slowDenomination 0.2s ease;
+}
+
 
 .denomination-options {
   width:  370px;
@@ -159,6 +190,7 @@ marquee {
   margin: 0 5px 5px 0;
   font-family: Helvetica Neu;
   line-height: 118px;
+  color: white;
 }
 
 .option-left {
@@ -184,6 +216,46 @@ marquee {
 }
 
 .select {
-    margin-top: 108px;
-    font-family: Helvetica Neu;
+  margin-top: 108px;
+  font-family: Helvetica Neu;
 }
+
+.option:hover {
+  background-color: rgba(225, 225, 225, 0.25);
+}
+
+.option:active {
+  background-color: rgba(225, 225, 225, 0.75);
+  font-color: #7a818a;
+}
+
+.fadeOut {
+  -webkit-animation: fadeOutDenomination 1s ease;
+  opacity: 0;
+
+}
+@-webkit-keyframes fadeOutDenomination {
+  0%  { opacity: 1;}
+  5% { opacity : 0.95;}
+  10% { opacity : 0.90;}
+  15% { opacity : 0.85;}
+  20% { opacity : 0.80;}
+  25% { opacity : 0.75;}
+  30% { opacity : 0.70;}
+  35% { opacity : 0.65;}
+  40% { opacity : 0.60;}
+  45% { opacity : 0.55;}
+  50% { opacity : 0.50;}
+  55% { opacity : 0.45;}
+  60% { opacity : 0.40;}
+  65% { opacity : 0.35;}
+  70% { opacity : 0.30;}
+  75% { opacity : 0.25; }
+  80% { opacity : 0.20;}
+  85% { opacity : 0.15;}
+  90% { opacity : 0.10;}
+  95% { opacity : 0.05;}
+  100% { opacity : 0;}
+}
+
+
