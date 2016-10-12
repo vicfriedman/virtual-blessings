@@ -30,6 +30,7 @@
   color: #fff;
   margin: 0;
   font-family: Helvetica Neue;
+  z-index: 999;
 }
 
 #option {
@@ -44,12 +45,12 @@
 
 .copy-right {
   font-family: Helvetica Neue;
-  font-weight: bold;
   font-style: italic;
   right: 50px;
   position: absolute;
   top: 10;
   margin: 0;
+  z-index: 99;
 
 }
 
@@ -256,6 +257,20 @@ marquee {
   90% { opacity : 0.10;}
   95% { opacity : 0.05;}
   100% { opacity : 0;}
+}
+
+.blessingVideo {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+
+.volume-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 999s;
 }
 
 

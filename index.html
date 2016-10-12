@@ -67,7 +67,8 @@
     var start = document.querySelector('#clickToStart');
 
     var denomination;
-
+    var volumeButton;
+    var blessingVideo;
     function overlay(overlayToShow){
       if (overlayToShow.classList.contains("hide-overlay")){
         overlayToShow.classList.remove("hide-overlay");
@@ -91,13 +92,6 @@
 
     }
 
-    function beginBlessing(){
-      blessingOption = denomination.selectedIndex;
-      secondOverlay.classList.add("hide-overlay");
-      overlay(thirdOverlay);
-      marqueeText();
-    }
-
 
     function yesBless(){
       firstOverlay.classList.add("hide-overlay");
@@ -108,52 +102,76 @@
       firstOverlay.classList.add("hide-overlay");
     }
 
+    function toggleVolume(){
+      if (volumeButton.classList.contains('muted')){
+        volumeButton.classList.remove('muted');
+        volumeButton.classList.add('unmuted');
+        blessingVideo.muted = false;
+      } else if (volumeButton.classList.contains('unmuted')){
+        volumeButton.classList.remove('unmuted');
+        volumeButton.classList.add('muted');
+        blessingVideo.muted = true;
+      }
+    }
+
+    function addClickEventToVolume(){
+      volumeButton = document.querySelector('.volume-button');
+      volumeButton.addEventListener('click', toggleVolume);
+    }
+
     function buildMovie(){
-      var blessingVideo = document.createElement('video');
+      var volume = document.createElement('img')
+      volume.src = "http://pixel.nymag.com/imgs/daily/other/2016/06/10/button_volume.png"
+      volume.classList.add("volume-button");
+      volume.classList.add('unmuted');
+      blessingVideo = document.createElement('video');
       if (denomination == "Christian"){
         console.log("christian")
-        blessingVideo.src="";
-
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/12/99x_PROMO_104_30_NEWEP.mp4";
       } else if (denomination == "Judaism"){
         console.log("judaism")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/06/XAXFALLINGWATERSECURITY15_THURS_100MB.mp4.mp4";
       } else if (denomination == "Buddism" ){
         console.log("buddism")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/12/99x_PROMO_104_30_NEWEP.mp4";
       } else if (denomination == "Agnostic"){
         console.log("agnostic")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/06/XAXFALLINGWATERSECURITY15_THURS_100MB.mp4.mp4";
       } else if (denomination == "Islam"){
         console.log("islam")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/12/99x_PROMO_104_30_NEWEP.mp4";
       } else if (denomination == "Atheism"){
         console.log("atheism")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/06/XAXFALLINGWATERSECURITY15_THURS_100MB.mp4.mp4";
       } else if (denomination == "Secular"){
         console.log("secular")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/12/99x_PROMO_104_30_NEWEP.mp4";
       } else if (denomination == "Hinduism"){
         console.log("hinduism")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/06/XAXFALLINGWATERSECURITY15_THURS_100MB.mp4.mp4";
       } else if (denomination == "Unitarian Universalist"){
         console.log("u u ")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/12/99x_PROMO_104_30_NEWEP.mp4";
       } else if (denomination == "No Preference"){
         console.log("none")
-        blessingVideo.src="";
+        blessingVideo.src="http://imgs.nymag.com/videos/imm-videos/2016/10/06/XAXFALLINGWATERSECURITY15_THURS_100MB.mp4.mp4";
       }
-      blessingVideo.className = "blessingVideo"
+      blessingVideo.className = "blessingVideo";
+      blessingVideo.preload = "auto";
+      blessingVideo.muted = true;
       secondOverlay.appendChild(blessingVideo);
+      secondOverlay.appendChild(volume);
+      blessingVideo.play();
+      addClickEventToVolume();
     }
+
     function selectDenomination(){
-      var innerOverlay = document.querySelector(".blessingItem");
+      var options = document.querySelector(".denomination-options");
       denomination = this.innerHTML;
-      innerOverlay.classList.add("fadeOut");
-      buildMovie();
-      // secondOverlay.classList.add("fadeOut");
-      // window.setTimeout(function(){
-      //   secondOverlay.classList.add("hide-overlay")
-      // }, 1000);
+      options.classList.add("fadeOut");
+      window.setTimeout(function(){
+        buildMovie();
+      }, 1500)
 
     }
 
@@ -165,7 +183,9 @@
         overlays[0].classList.add('hide-overlay')
       });
       closeBtns[1].addEventListener('click', function(){
-        overlays[1].classList.add('hide-overlay')
+        var blessingVideo = document.querySelector('.blessingVideo')
+        blessingVideo.pause();
+        overlays[1].classList.add('hide-overlay');
       });
       closeBtns[2].addEventListener('click', function(){
         overlays[2].classList.add('hide-overlay')
